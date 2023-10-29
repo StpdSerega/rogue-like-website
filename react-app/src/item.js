@@ -1,7 +1,7 @@
 import React from "react";
 let index = 0;
 export default function Item({ row }) {
-  index++;
+  index++;        //place on the leaderboard
   return (
     <li className="item">
       <span className="item__index">{index}</span>

@@ -1,13 +1,13 @@
 import React, { useState} from "react";
-import ReactDOM from "react-dom";
-
+import { createRoot } from "react-dom/client";
 import "./styles.css";
 import List from "./List";
-import { getInitialData} from "./data";
+import { getInitialData} from "./users_item.js";
+
   
 function App() {
   const [data] = useState(getInitialData());
-  
+ 
   return (
     <div className="App">
       <span className="Leaderboard">LEADERBOARD</span>
@@ -20,8 +20,10 @@ function App() {
       </li>
       <List data={data} />
     </div>
+    
   );
 }
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+const root = createRoot(rootElement);
+root.render(<App />);
