@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react";  //display data about each player
 let index = 0;
 export default function Item({ row }) {
   index++;        //place on the leaderboard
