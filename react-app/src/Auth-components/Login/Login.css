@@ -38,8 +38,12 @@ input {
   font-family: "Concert One";
   font-size: 150%;
 }
+
+.Password{
+  width: 210px;
+}
   
-  button {
+  .sign_in {
     justify-content: center;
     width: 170px;
     display: flex;
@@ -63,4 +67,8 @@ input {
     will-change: transform;
     background-color: #FAFF08;
     transition: all 0.3s ease-in;
+  }
+
+  password{
+    display:flex;
   }
