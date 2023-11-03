@@ -1,5 +1,5 @@
-const express = require('express');
-const cors = require('cors')
+const express = require('express');   //when backend`s server is done I delete this file
+const cors = require('cors')          //It`s only for check Log in
 const app = express();
 
 app.use(cors());
