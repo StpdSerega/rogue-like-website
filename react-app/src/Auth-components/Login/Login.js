@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './Login.css';
+import { ReactComponent as eye } from './eye.svg';
+import { ReactComponent as eye_off } from './eye-off-outline.svg';
 
 async function loginUser(credentials) {
  return fetch('http://localhost:8080/login', {
