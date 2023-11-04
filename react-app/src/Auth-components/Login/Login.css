@@ -63,12 +63,36 @@ input {
     margin-right: auto; 
   }
   
-  button:hover {
+  .sign_in:hover {
     will-change: transform;
     background-color: #FAFF08;
     transition: all 0.3s ease-in;
   }
 
   password{
-    display:flex;
+    
+   display: flex;
+    background-color: #DCBF02;
+    border-radius: 20px;
+    border: 1px;
+    height: 55px;
+    width: 250px;
+  text-align: center; 
+  
+  border: 1px solid #DCBF02;
+  border-radius: 15px;
+  background-color: #DCBF02;
+  box-sizing: border-box;
   }
+  .Pass_eye{
+    width: 30px;
+    border-color: #000000;
+    background-color: #DCBF02;
+    
+  }
+.eye{
+  padding: 0;
+  background-color: #DCBF02;
+  border: none;
+  border-radius: 15px;
+}
