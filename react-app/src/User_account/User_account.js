@@ -6,6 +6,7 @@ import EditPencil from './pencil.png';
 import { Link } from "react-router-dom";
 import useToken from "../useToken";
 import axios from "axios";
+import Login from '../Auth-components/Login/Login';
 
 let name_user = "User";
 let surname = "Super";
@@ -19,7 +20,7 @@ function get_data_from_server(token){
   const headers = {
     Authorization: `Bearer ${token}`,
   };
-  
+
   axios.get("https://your-server.com/api/users/me", { headers })
     .then((response) => {
       const data = JSON.parse(response.data);
@@ -42,10 +43,14 @@ function get_data_from_server(token){
 
 export default function Account() {
   const [isEditMode, setIsEditMode] = useState(false);  //button for input
-  const {token} = useToken();
+
+  const { token, setToken } = useToken();               //protection against unauthorized users
+  if(!token) {
+    return <Login setToken={setToken} />
+  };
+
   get_data_from_server(token);
 
-  
   const handleClick = () => {
     // make new input
     const input = document.createElement("input");
@@ -90,7 +95,7 @@ export default function Account() {
         <h1 className='Hello_user'>Hello, {name_user}!</h1>
         <div className='User_data'>
             <button type="back" className="User_data_back">
-              <Link to="/">
+              <Link to="/leaderboard">
                   <img src={ArrrowBack} alt="back" className="User_data_back" />
               </Link>
               </button>
