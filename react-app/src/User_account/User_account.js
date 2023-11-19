@@ -19,7 +19,8 @@ function get_data_from_server(token){
   const headers = {
     Authorization: `Bearer ${token}`,
   };
-axios.get("https://your-server.com/api/users/me", { headers })
+  
+  axios.get("https://your-server.com/api/users/me", { headers })
     .then((response) => {
       const data = JSON.parse(response.data);
 
