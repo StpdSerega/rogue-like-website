@@ -1,0 +1,22 @@
+.General{
+    background-color: #452B1D;
+
+}
+
+
+
+.General_name{
+    color: #A1A400;
+    font-size: 350%;
+    display: block; 
+    margin: 0 auto;
+  }
+  
+  .General_head{
+    display: flex;
+  }
+
+ .General_head_text{
+    display: flex;
+    flex-grow: 5;
+ }
