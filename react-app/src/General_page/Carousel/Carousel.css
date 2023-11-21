@@ -58,8 +58,8 @@
       
       .indicator {
         background-color: white;
-        height: 11px;
-        width: 10px;
+        height: 15px;
+        width: 15px;
         border-radius: 100%;
         border: none;
         outline: none;
@@ -68,5 +68,5 @@
       }
       
       .indicator-inactive {
-        background-color: #D9D9D9;
+        background-color: #ADA5A0;
       }
