@@ -33,9 +33,10 @@ export default function Item({ row }) {
   return (
     <li className="item">
       <span className="item__index">{Ind}</span>
-      <span className="item__nickname">{row.username}</span>
-      <span className="item__score">{row.score}</span>
-      <span className="item__time">{row.time}</span>
+      <span className="item__nickname">{row.firstName}</span>
+      <span className="item__score">{row.age}00</span>
+      <span className="item__time">{row.id}:00:00</span>
     </li>
+    
   );
 }
