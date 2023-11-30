@@ -1,68 +1,59 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import './Registration.css';
 import eye from './eye.png';
 import eye_off from './eye-off-outline.png';
 
-async function addUser(credentials) {                   //registration
-  fetch('https://dummyjson.com/users/add', {
+
+function addUser(credentials) {                   //registration
+  return fetch('https://dummyjson.com/users/add', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 
+      'Content-Type': 'application/json' 
+    },
     body: JSON.stringify(credentials)
   })
   .then(res => res.json())
 }
 
 
-const showMessage = (mes) =>{
+const showMessageConsole = (mes) =>{
   console.log(mes);
 }
-// async function loginUser(credentials) {
-//  return fetch('https://dummyjson.com/auth/login', {
-//    method: 'POST',
-//    headers: {
-//      'Content-Type': 'application/json'
-//    },
-//    body: JSON.stringify(credentials)
-//  })
-//    .then(data => data.json())
 
-// }
 
-export default function Registration({ setToken }) {
+export default function Registration() {
   const [login, setLogin] = useState();                     //login
   const [password, setPassword] = useState();               //password
   const [repeatPassword, setRepeatPassword] = useState();   //repeat password
   const [name, setName] = useState();                       //name
   const [surname, setSurname] = useState();                 //surname
   const [nickname, setNickname] = useState();               //nickname
-  const [dateOfBirth, setDateOfBirth] = useState();         //date of birth
-
+  const [age, setAge] = useState();         //age
   const [showPassword, setShowPassword] = useState(false);
-
+  const [messager, setMessage] = useState(""); 
   const handleSubmit = async e => {
     e.preventDefault();
-    const answer = await addUser({
-      name: name,
-      surname: surname,
-      nickname: nickname,
-      dateOfBirth: dateOfBirth,
-      login:login,
-      password: password
-    });
-    setToken(answer);
-   console.log(answer);
-  }
+    if (password !== repeatPassword) {
+      console.error('Passwords do not match');
+      return;
+    }
 
+  }
+  // eslint-disable-next-line
+  let message;
   const handlePasswordVisibility = () => {
     setShowPassword(!showPassword);
  }
-  let message = 'success';
+ // eslint-disable-next-line
+ const showMessage = (messager) => {
 
-  password !== repeatPassword?message = 'The passwords are not the same': message = 'Success'
+  setMessage(messager)};
+
 
  return(
+  
     <div className="registration-wrapper">
+      
       <form onSubmit={handleSubmit}>
         <h1>Registration Form</h1>
         <label className='firstString'>
@@ -82,8 +73,8 @@ export default function Registration({ setToken }) {
             <input type="text" onChange={e => setNickname(e.target.value)} />
           </div>
             <div className='secondString_dateOfBirth'>
-              <p className='text'>Date Of Birth</p>
-              <input type="text" onChange={e => setDateOfBirth(e.target.value)} />
+              <p className='text'>Age</p>
+              <input type="text" onChange={e => setAge(e.target.value)} />
             </div>
         </label>
         
@@ -96,7 +87,7 @@ export default function Registration({ setToken }) {
           <label className='password'>
             <p className='text'>Password</p>
             <passwordr>
-              <input type={showPassword ? 'text' : 'password'} className="Password" onChange={e => setPassword(e.target.value)} />
+              <input type={showPassword ? 'text' : 'password'} className="Passwordr" onChange={e => setPassword(e.target.value)} />
               <button type="button" className='eye' onClick={handlePasswordVisibility}>
                 {showPassword ? 
                           <img src={eye_off} alt="Eye" className="Pass_eye" /> 
@@ -108,7 +99,7 @@ export default function Registration({ setToken }) {
           <label className='password'>
             <p className='text'>Repeat password</p>
             <passwordr>
-              <input type={showPassword ? 'text' : 'password'} onChange={e => setRepeatPassword(e.target.value)} className='Password'/>
+              <input type={showPassword ? 'text' : 'password'} onChange={e => setRepeatPassword(e.target.value)} className='Passwordr'/>
               <button type="button" className='eye' onClick={handlePasswordVisibility}>
                 {showPassword ? 
                         <img src={eye_off} alt="Eye" className="Pass_eye" /> 
@@ -118,15 +109,29 @@ export default function Registration({ setToken }) {
           </label>
         </div>
         <div>
+        {messager && (
+        <div className="message">
+          {messager}
+        </div>
+      )}
         <button type="create_account" className='create_account'
-            onClick={showMessage(message)}>
+            onClick={() => {
+              message = addUser({
+                firstName: name,
+                lastName: surname,
+                username: nickname,
+                age: age,
+                email:login,
+                password: password
+              });
+              showMessageConsole(message);
+              showMessage("Successfuly, \nyou can come back and login!\n");              
+              }}>
             CREATE ACCOUNT
           </button>
         </div>
       </form>
+
     </div>
  )
 }
-Registration.propTypes = {
-  setAnswer: PropTypes.func.isRequired
- };
