@@ -86,36 +86,37 @@ export default function Registration({ setToken }) {
               <input type="text" onChange={e => setDateOfBirth(e.target.value)} />
             </div>
         </label>
+        
+        <div className='loginAndPassword'>
+          <label className='login'>
+            <p className='text'>Login</p>
+            <input type="text" className = 'registrationInput' onChange={e => setLogin(e.target.value) } />
+          </label>
 
-        <label className='login'>
-          <p className='text'>Login</p>
-          <input type="text" onChange={e => setLogin(e.target.value)} />
-        </label>
+          <label className='password'>
+            <p className='text'>Password</p>
+            <passwordr>
+              <input type={showPassword ? 'text' : 'password'} className="Password" onChange={e => setPassword(e.target.value)} />
+              <button type="button" className='eye' onClick={handlePasswordVisibility}>
+                {showPassword ? 
+                          <img src={eye_off} alt="Eye" className="Pass_eye" /> 
+                          :<img src={eye} alt="Eye" className="Pass_eye" /> }
+              </button>
+            </passwordr>
+          </label>
 
-        <label className='password'>
-          <p className='text'>Password</p>
-          <password>
-            <input type={showPassword ? 'text' : 'password'} onChange={e => setPassword(e.target.value)} className='Password'/>
-            <button type="button" className='eye' onClick={handlePasswordVisibility}>
-              {showPassword ? 
+          <label className='password'>
+            <p className='text'>Repeat password</p>
+            <passwordr>
+              <input type={showPassword ? 'text' : 'password'} onChange={e => setRepeatPassword(e.target.value)} className='Password'/>
+              <button type="button" className='eye' onClick={handlePasswordVisibility}>
+                {showPassword ? 
                         <img src={eye_off} alt="Eye" className="Pass_eye" /> 
                         :<img src={eye} alt="Eye" className="Pass_eye" /> }
-            </button>
-          </password>
-        </label>
-
-        <label className='password'>
-          <p className='text'>Repeat password</p>
-          <password>
-            <input type={showPassword ? 'text' : 'password'} onChange={e => setRepeatPassword(e.target.value)} className='Password'/>
-            <button type="button" className='eye' onClick={handlePasswordVisibility}>
-              {showPassword ? 
-                      <img src={eye_off} alt="Eye" className="Pass_eye" /> 
-                      :<img src={eye} alt="Eye" className="Pass_eye" /> }
-            </button>
-          </password>
-        </label>
-          
+              </button>
+            </passwordr>
+          </label>
+        </div>
         <div>
         <button type="create_account" className='create_account'
             onClick={showMessage(message)}>

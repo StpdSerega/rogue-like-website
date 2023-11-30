@@ -57,13 +57,14 @@
    
 }
 
-
+.loginAndPassword{
+  display: inline-block;
+}
   
 input {
   height: 50px;
   width: 250px;
   text-align: center; 
-  
   border: 1px solid #DCBF02;
   border-radius: 15px;
   background-color: #DCBF02;
@@ -85,16 +86,16 @@ input {
     display: flex;
     background-color: #D9DD05;
     color: #000000;
-    padding: 10px;
+    padding: 15px;
     border: 1px solid #D9DD05;
     border-radius: 15px;
     cursor: pointer;
     font-size: 150%;
     font-family: sans-serif;
     font-family: "Concert One";
-    margin-top: 10px;
+    margin-top: 20px;
     flex-grow: 1;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     margin-left: auto; 
     margin-right: auto; 
   }
@@ -105,14 +106,14 @@ input {
     transition: all 0.3s ease-in;
   }
 
-  password{
+  passwordr{
     
    display: flex;
     background-color: #DCBF02;
     border-radius: 20px;
     border: 1px;
     height: 55px;
-    width: 250px;
+    width: 400px;
   text-align: center; 
   
   border: 1px solid #DCBF02;
@@ -131,4 +132,12 @@ input {
   background-color: #DCBF02;
   border: none;
   border-radius: 15px;
+}
+
+.text{
+  margin-bottom: 2px;
+}
+
+.registrationInput{
+  width: 400px;
 }
