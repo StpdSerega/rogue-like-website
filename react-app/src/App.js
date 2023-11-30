@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
 import "./styles.css";
-//import "./Auth-components/App/Auth.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Leaderboard from "./Leaderboard/Leaderboard";
 import UserAccount from "./User_account/User_account";
@@ -11,8 +10,7 @@ import Registration from "./Auth-components/Registration/Registration"
 
 function App() {
   return (
-    <div className="App">
-      
+    <div className="App">      
       <BrowserRouter>
         <Routes>
           <Route path="/account" element={<UserAccount />} />
