@@ -125,7 +125,7 @@ export default function Registration() {
                 password: password
               });
               showMessageConsole(message);
-              showMessage("Successfuly, \nyou can come back and login!\n");              
+              showMessage("Successfuly, \nyou can come back and log in!\n");              
               }}>
             CREATE ACCOUNT
           </button>
